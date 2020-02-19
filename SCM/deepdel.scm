@@ -1,0 +1,6 @@
+(define (del V L)
+  (cond ((null? L) L)
+        ((list? (car L))
+         (cons (del V (car L)) (del V (cdr L))))
+        ((equal? V (car L)) (del V (cdr L)))
+        (else (cons (car L) (del V (cdr L))))))
